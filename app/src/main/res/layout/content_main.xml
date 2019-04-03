@@ -8,6 +8,48 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="48dp"
+        android:ems="10"
+        android:hint="Deger5"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="112dp"
+        android:ems="10"
+        android:hint="Deger4"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginBottom="172dp"
+        android:ems="10"
+        android:hint="Deger3"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="88dp"
@@ -31,11 +73,11 @@
         android:layout_marginStart="99dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="99dp"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="311dp"
         android:ems="10"
         android:hint="Deger1"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="236dp"
         android:ems="10"
         android:hint="Deger2"
         android:inputType="textPersonName"

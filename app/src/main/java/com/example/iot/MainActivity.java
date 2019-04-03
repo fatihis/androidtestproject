@@ -28,11 +28,15 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity  implements SensorEventListener {
-    public EditText editText,editText2;
+    public EditText editText,editText2,editText3,editText4,editText5;
     public TextView textView1;
     private  SensorManager mSensorManager;
     private  Sensor mLightometer;
     private  Sensor mTemp;
+    private  Sensor mProx;
+    private  Sensor mAcceler;
+    private  Sensor mGravity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +47,23 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         textView1 = findViewById(R.id.textView1);
         editText = findViewById(R.id.editText);
         editText2 = findViewById(R.id.editText2);
+        editText3 = findViewById(R.id.editText3);
+        editText4 = findViewById(R.id.editText4);
+        editText5 = findViewById(R.id.editText5);
+
         setSupportActionBar(toolbar);
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         mLightometer = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         mTemp = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        mProx = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        mAcceler = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mGravity = mSensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+
         mSensorManager.registerListener(this, mLightometer, SensorManager.SENSOR_DELAY_NORMAL);
         mSensorManager.registerListener(this, mTemp, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mProx, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mAcceler, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mGravity, SensorManager.SENSOR_DELAY_NORMAL);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         //Internet bağlantısı yoksa ihtiyac yok
@@ -79,9 +94,14 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
                     JSONObject jsonParam = new JSONObject();
-                    jsonParam.put("api_key","f5669f6f-4e66-119b86481736f54175");
+                    jsonParam.put("api_key","43c868db-5601-11eb9640945d714d2a");
                     jsonParam.put("value_1",editText.getText());
                     jsonParam.put("value_2",editText2.getText());
+                    jsonParam.put("value_3",editText3.getText());
+                    jsonParam.put("value_4",editText4.getText());
+                    jsonParam.put("value_5",editText5.getText());
+
+
 
                     Log.i("JSON",jsonParam.toString());
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
@@ -94,6 +114,7 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
                     //Toast.makeText(getApplicationContext(),"asdasd",Toast.LENGTH_LONG).show();
                     //Log.i("MSG",conn.getResponseMessage());
                     textView1.setText(conn.getResponseMessage());
+                    Toast.makeText(getApplicationContext(),"SELAM",Toast.LENGTH_LONG).show();
 
 
                     conn.disconnect();
@@ -139,6 +160,15 @@ public class MainActivity extends AppCompatActivity  implements SensorEventListe
         }
         if(event.sensor.getType() == Sensor.TYPE_LIGHT){
             editText2.setText(String.valueOf(f));
+        }
+        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY){
+            editText3.setText(String.valueOf(f));
+        }
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            editText4.setText(String.valueOf(f));
+        }
+        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY){
+            editText5.setText(String.valueOf(f));
         }
 
 
